@@ -1,5 +1,4 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 import Visualizer, { visualizerProps } from "./components/visualizer";
 import { bubleSort } from "./static/fuctions/sorting/buble";
@@ -8,20 +7,29 @@ import { insertionSort } from "./static/fuctions/sorting/insertion";
 import { quickSort } from "./static/fuctions/sorting/quick";
 import { countingSort } from "./static/fuctions/sorting/counting";
 import { mergeSort } from "./static/fuctions/sorting/merge";
-import { radixSort } from "./static/fuctions/sorting/radix";
+import { radixSortLSD } from "./static/fuctions/sorting/radix";
+import Presentation from "./components/presentation";
 
 const VisualizerProps: visualizerProps = {
-  algorithm: radixSort,
+  algorithm: quickSort,
   sortName: "quick sort",
   animationProps: {
     sleepTime: 1,
     everyNth: 2,
-    arrSize: 512,
+    arrSize: 256,
     canvasSize: {
       width: 1024,
       height: 400,
     },
   },
+  controlsEnabled: {
+    play: true,
+    sleepTime: true,
+    everyNth: true,
+    shuffle: true,
+    shuffleStyle: true,
+    arrSize: true
+  }
 };
 
 function App() {
@@ -29,7 +37,7 @@ function App() {
 
   return (
     <div className="App">
-      <Visualizer {...VisualizerProps} />
+      <Presentation />
     </div>
   );
 }

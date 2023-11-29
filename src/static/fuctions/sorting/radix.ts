@@ -1,6 +1,8 @@
 import { sortReturn } from "../../types/sortReturn";
 
-export function* radixSort(arr: number[]): Generator<sortReturn, sortReturn> {
+export function* radixSortLSD(
+  arr: number[]
+): Generator<sortReturn, sortReturn> {
   const base = 4;
   let max = Number.MIN_VALUE;
   for (let i = 0; i < arr.length; i++) {
@@ -28,7 +30,6 @@ export function* radixSort(arr: number[]): Generator<sortReturn, sortReturn> {
         arr,
       } as sortReturn;
     }
-    console.log(buckets);
     let arrId = 0;
     for (let i = 0; i < base; i++) {
       for (let j = 0; j < buckets[i].length; j++) {
@@ -41,7 +42,6 @@ export function* radixSort(arr: number[]): Generator<sortReturn, sortReturn> {
       }
       buckets[i] = [];
     }
-    console.log(buckets);
   }
 
   return {
