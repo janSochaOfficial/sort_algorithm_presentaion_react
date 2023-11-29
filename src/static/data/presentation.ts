@@ -1,10 +1,19 @@
-import { bubleSort, quickSort, countingSort, insertionSort, mergeSort, selectionSort, radixSortLSD} from "../fuctions/sorting";
+import {
+  bubleSort,
+  quickSort,
+  countingSort,
+  insertionSort,
+  mergeSort,
+  selectionSort,
+  radixSortLSD,
+} from "../fuctions/sorting";
 import { slideData } from "../types/slide";
 
 export const presentaion = [
   {
     title: "Let's start with a few obvious things",
-    content: '<h4>What is sorting?</h4> <p><em>Sorting</em> is an operation that segregates items into groups according to specified criterion</p>  <p class="center" >EXAMPLE:</p> <p class="center" >A = { 0 2 5 17 12 1 1 3} → A" = { 0 1 1 2 3 5 12 17 } </p>  <h4>Sorting algorithms</h4> <p>There are many, many different types of sorting algorithms. The primary ones are:</p> <p class="center" >Bubble Sort | Insertion Sort</p> <p class="center" >Merge Sort | Quick Sort</p> <p class="center">Radix Sort | Selection Sort</p> <p class="center">Shell Sort | Swap Sort</p>  <p class="center">Cube Sort | Comparison Sort</p> <br>',
+    content:
+      '<h4>What is sorting?</h4> <p><em>Sorting</em> is an operation that segregates items into groups according to specified criterion</p>  <p class="center" >EXAMPLE:</p> <p class="center" >A = { 0 2 5 17 12 1 1 3} → A" = { 0 1 1 2 3 5 12 17 } </p>  <h4>Sorting algorithms</h4> <p>There are many, many different types of sorting algorithms. The primary ones are:</p> <p class="center" >Bubble Sort | Insertion Sort</p> <p class="center" >Merge Sort | Quick Sort</p> <p class="center">Radix Sort | Selection Sort</p> <p class="center">Shell Sort | Swap Sort</p>  <p class="center">Cube Sort | Comparison Sort</p> <br>',
     visualizer: false,
   } as slideData,
   {
@@ -17,10 +26,10 @@ export const presentaion = [
     content: `<p>The complexity of a sorting algorithm refers to the efficiency and resource requirements of the algorithm in relation to the size of the input data. It is commonly expressed using Big O notation. Examples of sorting algorithm complexities include O(n^2) for algorithms like Bubble Sort and Selection Sort, O(n log n) for more efficient algorithms like Merge Sort and Quick Sort, and linear time complexity O(n) for algorithms like Counting Sort when specific conditions are met.</p><h5>O(n^2):</h5><p class="center">Bubble Sort; Selection Sort; Insertion Sort<h5>O(n log n):</h5><p class="center">Merge Sort, Quick Sort, Heap Sort</p><h5>O(n):</h5><p class="center"> Counting Sort & Radix Sort (but under specific conditions)</p>`,
     visualizer: false,
   } as slideData,
-  
+
   {
     title: "Bubble Sort",
-    content: `<p>Bubble sort is a simple sorting algorithm that repeatedly steps through the list, compares adjoining elements, and swaps them if they are in the wrong order.The pass through the list is repeated until the list is sorted.The algorithm is named for the way smaller elements 'bubble' to the top of the list, while larger elements 'sink' to the bottom.</p>`,
+    content: `<p>Bubble sort is a simple sorting algorithm that repeatedly steps through the list, compares adjoining elements, and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm is named for the way smaller elements 'bubble' to the top of the list, while larger elements 'sink' to the bottom.</p>`,
     visualizer: true,
     visualizerProps: {
       algorithm: bubleSort,
@@ -41,9 +50,32 @@ export const presentaion = [
       },
     },
   } as slideData,
+  //   {
+  //     title: "Bubble Sort",
+  //     content: "Example implementation in TypeScript",
+  //     visualizer: false,
+  //     code: true,
+  //     codeValue: `function bubleSort(arr: number[]) {
+  //   let isSorted = true;
+  //   for (let i = 0; i < arr.length; i++) {
+  //     isSorted = true;
+  //     for (let j = 1; j < arr.length - i; j++) {
+  //       if (arr[j - 1] > arr[j]) {
+  //         isSorted = false;
+  //         // swap
+  //         const temp = arr[j];
+  //         arr[j] = arr[j - 1];
+  //         arr[j - 1] = temp;
+  //       }
+  //     }
+  //     if (isSorted) break;
+  //   }
+  // }`,
+  //   } as slideData,
   {
     title: "Quick Sort",
-    content: "<p>QuickSort, developed by Tony Hoare in 1960, is a comparison sort algorithm. It selects a pivot element from the array, partitions the other elements into two sub-arrays based on their relationship to the pivot, and recursively sorts them. The time complexity is O(n log n) on average, making it efficient for large datasets. However, in the worst case, with poor pivot selection, it can degrade to O(n^2). Widely used in practice, QuickSort is often the default sorting algorithm in many programming libraries.</p>",
+    content:
+      "<p>QuickSort, developed by Tony Hoare in 1960, is a comparison sort algorithm. It selects a pivot element from the array, partitions the other elements into two sub-arrays based on their relationship to the pivot, and recursively sorts them. The time complexity is O(n log n) on average, making it efficient for large datasets. However, in the worst case, with poor pivot selection, it can degrade to O(n^2). Widely used in practice, QuickSort is often the default sorting algorithm in many programming libraries.</p>",
     visualizer: true,
     visualizerProps: {
       algorithm: quickSort,
@@ -64,6 +96,57 @@ export const presentaion = [
       },
     },
   } as slideData,
+  //   {
+  //     title: "Quick Sort",
+  //     content: "Example implementation in TypeScript",
+  //     code: true,
+  //     codeValue: `function quickSort(arr: number[]){
+  //   let l = 0;
+  //   let h = arr.length - 1;
+
+  //   let stack = new Array(h - l + 1);
+  //   stack.fill(0);
+
+  //   let top = -1;
+
+  //   stack[++top] = l;
+  //   stack[++top] = h;
+
+  //   while (top >= 0) {
+  //     h = stack[top--];
+  //     l = stack[top--];
+
+  //     let temp: number;
+  //     let pivot = arr[h];
+
+  //     let i = l - 1;
+  //     for (let j = l; j <= h - 1; j++) {
+  //       if (arr[j] <= pivot) {
+  //         i++;
+
+  //         temp = arr[i];
+  //         arr[i] = arr[j];
+  //         arr[j] = temp;
+  //       }
+  //     }
+
+  //     temp = arr[i + 1];
+  //     arr[i + 1] = arr[h];
+  //     arr[h] = temp;
+  //     let p = i + 1;
+
+  //     if (p - 1 > l) {
+  //       stack[++top] = l;
+  //       stack[++top] = p - 1;
+  //     }
+
+  //     if (p + 1 < h) {
+  //       stack[++top] = p + 1;
+  //       stack[++top] = h;
+  //     }
+  //   }
+  // }`,
+  //   },
   {
     title: "Counting Sort",
     content: `<p>Counting Sort efficiently sorts integers or objects with a small value range. It has linear time complexity, faster than traditional comparison-based sorting algorithms under certain conditions. The key assumption is that the range of input values should not be significantly larger than the number of elements in the array. If met , Counting Sort achieves linear time complexity O(n), where "n" is the number of elements. It is not suitable for sorting data with large value ranges or floating-point numbers.</p>`,
@@ -92,7 +175,7 @@ export const presentaion = [
     content: `<p>Insertion Sort builds the final sorted array one element at a time by comparing and inserting each element into its correct position in the already sorted portion of the array. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort. However, it has several advantages, including its simplicity, ease of implementation, and its ability to efficiently sort small datasets or partially sorted datasets.</p>`,
     visualizer: true,
     visualizerProps: {
-      algorithm:insertionSort,
+      algorithm: insertionSort,
       sortName: "",
       animationProps: {
         sleepTime: 2,
@@ -119,8 +202,8 @@ export const presentaion = [
       sortName: "",
       animationProps: {
         sleepTime: 2,
-        everyNth: 4,
-        arrSize: 128,
+        everyNth: 1,
+        arrSize: 256,
         canvasSize: {
           width: 1024,
           height: 400,
@@ -164,9 +247,9 @@ export const presentaion = [
       algorithm: radixSortLSD,
       sortName: "",
       animationProps: {
-        sleepTime: 6,
+        sleepTime: 1,
         everyNth: 1,
-        arrSize: 128,
+        arrSize: 256,
         canvasSize: {
           width: 1024,
           height: 400,

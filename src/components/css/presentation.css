@@ -1,21 +1,37 @@
-.slide h2{
-    font-size: 3em;
+.slide h2 {
+  font-size: 3em;
 }
 .slide > div.content {
-    font-size: 2em;
+  font-size: 2em;
 }
-p{
-    font-size: 28px;
-    line-height: 1.3;
-    text-align: justify;
+p {
+  font-size: 28px;
+  line-height: 1.3;
+  text-align: justify;
 }
 
 .center {
-    text-align: center;
+  text-align: center;
 }
-ul{
-    list-style: none;
+ul {
+  list-style: none;
 }
-li{
-    padding: 15px
+li {
+  padding: 15px;
+}
+
+.nextBtn {
+  position: fixed;
+  top: calc(50% - 1.6em);
+  right: 2em;
+}
+
+.prevBtn {
+  position: fixed;
+  top: calc(50% - 1.6em);
+  left: 2em;
+}
+
+pre span {
+  font-size: 1.2rem !important;
 }
