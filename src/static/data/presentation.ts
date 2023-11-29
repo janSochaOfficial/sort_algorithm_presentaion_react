@@ -1,4 +1,4 @@
-import { bubleSort, quickSort, countingSort, insertionSort, mergeSort, selectionSort} from "../fuctions/sorting";
+import { bubleSort, quickSort, countingSort, insertionSort, mergeSort, selectionSort, radixSortLSD} from "../fuctions/sorting";
 import { slideData } from "../types/slide";
 
 export const presentaion = [
@@ -143,6 +143,29 @@ export const presentaion = [
       animationProps: {
         sleepTime: 2,
         everyNth: 4,
+        arrSize: 128,
+        canvasSize: {
+          width: 1024,
+          height: 400,
+        },
+      },
+      controlsEnabled: {
+        play: true,
+        shuffle: true,
+        shuffleStyle: true,
+      },
+    },
+  } as slideData,
+  {
+    title: "Radix Sort LSD",
+    content: `<p>Radix Sort LSD (Least Significant Digit) is a non-comparative integer sorting algorithm that distributes elements into buckets based on individual digits at different positions. It starts by sorting the elements based on the least significant digit and progressively moves towards the most significant digit. This process is repeated until all digits are considered, resulting in a fully sorted array. Despite its linear time complexity, Radix Sort is often outperformed by more advanced comparison-based algorithms like QuickSort or MergeSort.</p>`,
+    visualizer: true,
+    visualizerProps: {
+      algorithm: radixSortLSD,
+      sortName: "",
+      animationProps: {
+        sleepTime: 6,
+        everyNth: 1,
         arrSize: 128,
         canvasSize: {
           width: 1024,
