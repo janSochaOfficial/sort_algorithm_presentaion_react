@@ -1,6 +1,18 @@
-.slide h2{
-    font-size: 3em;
+.slide h2 {
+  font-size: 3em;
 }
 .slide > div.content {
-    font-size: 2em;
+  font-size: 2em;
+}
+
+.nextBtn {
+  position: fixed;
+  top: calc(50% - 1.6em);
+  right: 2em;
+}
+
+.prevBtn {
+  position: fixed;
+  top: calc(50% - 1.6em);
+  left: 2em;
 }

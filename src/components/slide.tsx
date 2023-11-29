@@ -7,13 +7,18 @@ type slideProps = {
   id: number;
 };
 export default function Slide({ slide, id }: slideProps) {
-  return <div className="slide">
+  return (
+    <div className="slide">
       <h2>{slide.title}</h2>
-      <div className="content" dangerouslySetInnerHTML={{__html: slide.content}}></div>
-      {
-        slide.visualizer && slide.visualizerProps ? 
-        <Visualizer key={id} {...slide.visualizerProps}/>
-          : <></>
-      }    
+      <div
+        className="content"
+        dangerouslySetInnerHTML={{ __html: slide.content }}
+      ></div>
+      {slide.visualizer && slide.visualizerProps ? (
+        <Visualizer key={id} {...slide.visualizerProps} />
+      ) : (
+        <></>
+      )}
     </div>
+  );
 }
