@@ -151,7 +151,7 @@ export default function Visualizer({
 
   return (
     <div className="visualizerContainer">
-      <h2 className="sortTitle">{sortName}</h2>
+      {sortName}
       <canvas
         width={canvasSize.width}
         height={canvasSize.height}

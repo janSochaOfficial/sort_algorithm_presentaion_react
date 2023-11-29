@@ -18,12 +18,13 @@ export default function Presentation() {
       <div>
         <Slide slide={presentaion[curr]} id={curr} />
       </div>
+      
+      {curr != 0 ? <button className="prevBtn" onClick={prevSlide}>PREV</button> : <></>}
       {curr < presentaion.length - 1 ? (
         <button className="nextBtn" onClick={nextSlide}>NEXT</button>
       ) : (
         <></>
       )}
-      {curr != 0 ? <button className="prevBtn" onClick={prevSlide}>PREV</button> : <></>}
     </>
   );
 }
